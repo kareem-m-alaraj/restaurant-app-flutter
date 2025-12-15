@@ -46,21 +46,21 @@ class MainPage extends StatelessWidget {
         ],
       ),
       drawer: const AppDrawer(),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const PromotionsBanner(),
-            const SectionTitle(title: 'Popular Items'),
+            PromotionsBanner(),
+            SectionTitle(title: 'Popular Items'),
             PopularItems(),
-            const SectionTitle(title: 'Menu Categories'),
+            SectionTitle(title: 'Menu Categories'),
             MenuCategories(),
-            const QuickAccessButtons(),
-            const SectionTitle(title: 'Current Offers'),
-            const OffersSection(),
-            const SectionTitle(title: 'Customer Reviews'),
-            const ReviewsSection(),
-            const ContactSection(),
+            QuickAccessButtons(),
+            SectionTitle(title: 'Current Offers'),
+            OffersSection(),
+            SectionTitle(title: 'Customer Reviews'),
+            ReviewsSection(),
+            ContactSection(),
           ],
         ),
       ),
@@ -133,9 +133,9 @@ class SectionTitle extends StatelessWidget {
 }
 
 class PopularItems extends StatelessWidget {
-  PopularItems({Key? key}) : super(key: key);
+  const PopularItems({Key? key}) : super(key: key);
 
-  final List<String> items = [
+  static const List<String> items = [
     'images/item1.jpg',
     'images/item2.jpeg',
     'images/item3.jpeg',
@@ -164,9 +164,9 @@ class PopularItems extends StatelessWidget {
 }
 
 class MenuCategories extends StatelessWidget {
-  MenuCategories({Key? key}) : super(key: key);
+  const MenuCategories({Key? key}) : super(key: key);
 
-  final List<String> categories = ['Starters', 'Main Course', 'Desserts', 'Beverages'];
+  static const List<String> categories = ['Starters', 'Main Course', 'Desserts', 'Beverages'];
 
   @override
   Widget build(BuildContext context) {
