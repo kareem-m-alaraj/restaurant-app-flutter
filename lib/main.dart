@@ -1,48 +1,52 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme: TextTheme(
-          bodyText1: TextStyle(fontSize: 16.0),
-          headline6: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(fontSize: 16.0),
+          titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
         ),
       ),
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }
 
 class MainPage extends StatelessWidget {
+  const MainPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Restaurant Name'),
+        title: const Text('Restaurant Name'),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               // Implement search functionality here
             },
           ),
           IconButton(
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
             onPressed: () {
               // Implement profile functionality here
             },
           ),
         ],
       ),
-      drawer: AppDrawer(),
-      body: SingleChildScrollView(
+      drawer: const AppDrawer(),
+      body: const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -65,27 +69,29 @@ class MainPage extends StatelessWidget {
 }
 
 class AppDrawer extends StatelessWidget {
+  const AppDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
             child: Text('Menu'),
           ),
           ListTile(
-            title: Text('Home'),
+            title: const Text('Home'),
             onTap: () {},
           ),
           ListTile(
-            title: Text('Order History'),
+            title: const Text('Order History'),
             onTap: () {},
           ),
           ListTile(
-            title: Text('Settings'),
+            title: const Text('Settings'),
             onTap: () {},
           ),
         ],
@@ -95,9 +101,11 @@ class AppDrawer extends StatelessWidget {
 }
 
 class PromotionsBanner extends StatelessWidget {
+  const PromotionsBanner({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200.0,
       child: PageView(
         children: [
@@ -113,19 +121,22 @@ class PromotionsBanner extends StatelessWidget {
 class SectionTitle extends StatelessWidget {
   final String title;
 
-  SectionTitle({required this.title});
+  const SectionTitle({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text(title, style: Theme.of(context).textTheme.headline6),
+      child: Text(title, style: Theme.of(context).textTheme.titleLarge),
     );
   }
 }
 
 class PopularItems extends StatelessWidget {
-  final List<String> items = ['images/item1.jpg',
+  const PopularItems({super.key});
+
+  static const List<String> items = [
+    'images/item1.jpg',
     'images/item2.jpeg',
     'images/item3.jpeg',
     'images/item4.jpeg',
@@ -135,7 +146,7 @@ class PopularItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 150.0,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -143,7 +154,7 @@ class PopularItems extends StatelessWidget {
         itemBuilder: (context, index) {
           return Container(
             width: 150.0,
-            margin: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(8.0),
             child: Image.asset(items[index], fit: BoxFit.cover),
           );
         },
@@ -153,25 +164,36 @@ class PopularItems extends StatelessWidget {
 }
 
 class MenuCategories extends StatelessWidget {
-  final List<String> categories = ['Starters', 'Main Course', 'Desserts', 'Beverages'];
+  const MenuCategories({super.key});
+
+  static const List<String> categories = [
+    'Starters',
+    'Main Course',
+    'Desserts',
+    'Beverages'
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-
-      spacing: 8.0,
-      runSpacing: 8.0,
-      children: categories.map((category) {
-        return Chip(
-          label: Text(category),
-          backgroundColor: Colors.grey[300],
-        );
-      }).toList(),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Wrap(
+        spacing: 8.0,
+        runSpacing: 8.0,
+        children: categories.map((category) {
+          return Chip(
+            label: Text(category),
+            backgroundColor: Colors.grey[300],
+          );
+        }).toList(),
+      ),
     );
   }
 }
 
 class QuickAccessButtons extends StatelessWidget {
+  const QuickAccessButtons({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -183,19 +205,19 @@ class QuickAccessButtons extends StatelessWidget {
             onPressed: () {
               // Implement order functionality here
             },
-            child: Text('Order Now'),
+            child: const Text('Order Now'),
           ),
           ElevatedButton(
             onPressed: () {
               // Implement reservation functionality here
             },
-            child: Text('Reservations'),
+            child: const Text('Reservations'),
           ),
           ElevatedButton(
             onPressed: () {
               // Implement loyalty functionality here
             },
-            child: Text('Loyalty/Rewards'),
+            child: const Text('Loyalty/Rewards'),
           ),
         ],
       ),
@@ -204,13 +226,15 @@ class QuickAccessButtons extends StatelessWidget {
 }
 
 class OffersSection extends StatelessWidget {
+  const OffersSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 100.0,
       color: Colors.grey[300],
-      margin: EdgeInsets.all(8.0),
-      child: Center(
+      margin: const EdgeInsets.all(8.0),
+      child: const Center(
         child: Text('Special Offers'),
       ),
     );
@@ -218,13 +242,15 @@ class OffersSection extends StatelessWidget {
 }
 
 class ReviewsSection extends StatelessWidget {
+  const ReviewsSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 150.0,
       color: Colors.grey[300],
-      margin: EdgeInsets.all(8.0),
-      child: Center(
+      margin: const EdgeInsets.all(8.0),
+      child: const Center(
         child: Text('Reviews Carousel'),
       ),
     );
@@ -232,6 +258,8 @@ class ReviewsSection extends StatelessWidget {
 }
 
 class ContactSection extends StatelessWidget {
+  const ContactSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -239,19 +267,20 @@ class ContactSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Our Location', style: Theme.of(context).textTheme.headline6),
+          Text('Our Location', style: Theme.of(context).textTheme.titleLarge),
           Container(
             height: 150.0,
             color: Colors.grey[300],
-            margin: EdgeInsets.all(8.0),
-            child: Center(
+            margin: const EdgeInsets.all(8.0),
+            child: const Center(
               child: Text('Map Here'),
             ),
           ),
-          Text('Contact Us', style: Theme.of(context).textTheme.headline6),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Phone: 123-456-7890\nAddress: 123 Main Street, City, Country'),
+          Text('Contact Us', style: Theme.of(context).textTheme.titleLarge),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+                'Phone: 123-456-7890\nAddress: 123 Main Street, City, Country'),
           ),
         ],
       ),
