@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class MainPage extends StatelessWidget {
 }
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key? key}) : super(key: key);
+  const AppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ class AppDrawer extends StatelessWidget {
 }
 
 class PromotionsBanner extends StatelessWidget {
-  const PromotionsBanner({Key? key}) : super(key: key);
+  const PromotionsBanner({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +121,7 @@ class PromotionsBanner extends StatelessWidget {
 class SectionTitle extends StatelessWidget {
   final String title;
 
-  const SectionTitle({Key? key, required this.title}) : super(key: key);
+  const SectionTitle({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +133,7 @@ class SectionTitle extends StatelessWidget {
 }
 
 class PopularItems extends StatelessWidget {
-  const PopularItems({Key? key}) : super(key: key);
+  const PopularItems({super.key});
 
   static const List<String> items = [
     'images/item1.jpg',
@@ -164,9 +164,14 @@ class PopularItems extends StatelessWidget {
 }
 
 class MenuCategories extends StatelessWidget {
-  const MenuCategories({Key? key}) : super(key: key);
+  const MenuCategories({super.key});
 
-  static const List<String> categories = ['Starters', 'Main Course', 'Desserts', 'Beverages'];
+  static const List<String> categories = [
+    'Starters',
+    'Main Course',
+    'Desserts',
+    'Beverages'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +192,7 @@ class MenuCategories extends StatelessWidget {
 }
 
 class QuickAccessButtons extends StatelessWidget {
-  const QuickAccessButtons({Key? key}) : super(key: key);
+  const QuickAccessButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -221,7 +226,7 @@ class QuickAccessButtons extends StatelessWidget {
 }
 
 class OffersSection extends StatelessWidget {
-  const OffersSection({Key? key}) : super(key: key);
+  const OffersSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +242,7 @@ class OffersSection extends StatelessWidget {
 }
 
 class ReviewsSection extends StatelessWidget {
-  const ReviewsSection({Key? key}) : super(key: key);
+  const ReviewsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -253,7 +258,7 @@ class ReviewsSection extends StatelessWidget {
 }
 
 class ContactSection extends StatelessWidget {
-  const ContactSection({Key? key}) : super(key: key);
+  const ContactSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -274,7 +279,8 @@ class ContactSection extends StatelessWidget {
           Text('Contact Us', style: Theme.of(context).textTheme.titleLarge),
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text('Phone: 123-456-7890\nAddress: 123 Main Street, City, Country'),
+            child: Text(
+                'Phone: 123-456-7890\nAddress: 123 Main Street, City, Country'),
           ),
         ],
       ),
